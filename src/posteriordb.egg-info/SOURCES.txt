@@ -1,0 +1,16 @@
+README.md
+setup.py
+src/posteriordb/__init__.py
+src/posteriordb/dataset.py
+src/posteriordb/model.py
+src/posteriordb/model_implementation_base.py
+src/posteriordb/posterior.py
+src/posteriordb/posterior_database.py
+src/posteriordb/pymc3_model_implementation.py
+src/posteriordb/stan_model_implementation.py
+src/posteriordb/util.py
+src/posteriordb.egg-info/PKG-INFO
+src/posteriordb.egg-info/SOURCES.txt
+src/posteriordb.egg-info/dependency_links.txt
+src/posteriordb.egg-info/not-zip-safe
+src/posteriordb.egg-info/top_level.txt
