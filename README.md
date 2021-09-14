@@ -16,8 +16,9 @@ pip install posteriordb
 Installing from the local clone.
 
 ```bash
-git clone https://github.com/MansMeg/posteriordb
-cd posteriordb
+git clone https://github.com/pystan-dev/posteriordb-python
+cd posteriordb-python
+python setup.py bdist_wheel
 pip install python/
 ```
 
@@ -30,11 +31,10 @@ First we create the posterior database to use, here the cloned posterior databas
 ```python
 >>> from posteriordb import PosteriorDatabase
 >>> import os
->>> pdb_path = os.path.join(os.getcwd(), "posterior_database")
+>>> pdb_path = os.path.join(os.getcwd(), "path/to/posterior_database")
 >>> my_pdb = PosteriorDatabase(pdb_path)
 ```
-The above code requires that your working directory is in the main folder of your copy
-of this project. Alternatively, you can specify the path to the folder directly.
+The above code requires you to specify the path to posterior_database folder in the posteriordb repository. If you clone it in the same folder as this repository, the path will be ../posteriordb/posterior_database.
 
 Online database can be used with the `PosteriorDatabaseGithub` class. Remember to create and set `GITHUB_PAT` environmental variable.
 It's recommended that users create a read-only (no extra permissions) [GitHub Personal Access Token (PAT)](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) for `posteriordb` use. It's also recommended that the
