@@ -16,9 +16,16 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Checkout github
+      - name: Checkout python module repo
         uses: actions/checkout@v2
         with:
+          fetch-depth: 0
+
+      - name: Checkout posteriordb repo
+        uses: actions/checkout@v2
+        with:
+          repository: stan-dev/posteriordb
+          path: posteriordb
           fetch-depth: 0
 
       - name: Set up Python ${{ matrix.python-version }}

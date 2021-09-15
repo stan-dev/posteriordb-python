@@ -7,8 +7,8 @@ from posteriordb.posterior_database_github import get_sha1_hash
 
 def test_posterior_database():
     # path to ../../ which is the posterior database directory
-    project_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-    pdb_path = os.path.join(project_path, "posterior_database")
+    project_path = os.path.dirname(os.path.dirname(__file__))
+    pdb_path = os.path.join(project_path, "posteriordb", "posterior_database")
     pdb = PosteriorDatabase(pdb_path)
 
     model_names = pdb.model_names()
