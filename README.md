@@ -16,10 +16,10 @@ pip install posteriordb
 Installing from the local clone.
 
 ```bash
-git clone https://github.com/pystan-dev/posteriordb-python
+git clone https://github.com/stan-dev/posteriordb-python
 cd posteriordb-python
 python setup.py bdist_wheel
-pip install python/
+pip install .
 ```
 
 ## Using the posterior database from python

@@ -6,9 +6,9 @@ from posteriordb import PosteriorDatabase
 
 def get_posterior_db():
     project_path = os.path.dirname(
-        os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+        os.path.dirname(os.path.dirname(__file__))
     )
-    pdb_path = os.path.join(project_path, "posterior_database")
+    pdb_path = os.path.join(project_path, "posteriordb", "posterior_database")
     pdb = PosteriorDatabase(pdb_path)
     assert len(pdb.posterior_names()) > 0
     return pdb
