@@ -1,5 +1,8 @@
+[![Python](https://github.com/stan-dev/posteriordb-python/actions/workflows/push.yml/badge.svg)](https://github.com/stan-dev/posteriordb-python/actions/workflows/push.yml)
 
-# Currently under construction
+# `posteriordb-python`: a python library to work with `posteriordb`
+
+This repository contain the python library to easily work with the [posteriordb](https://github.com/stan-dev/posteriordb) repository. The library included database contain convenience functions to access data, model code and information for individual posteriors, models, data and reference draws.
 
 ## Python versions
 
