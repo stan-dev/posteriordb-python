@@ -1,15 +1,15 @@
 [![Python](https://github.com/stan-dev/posteriordb-python/actions/workflows/push.yml/badge.svg)](https://github.com/stan-dev/posteriordb-python/actions/workflows/push.yml)
 
-# `posteriordb-python`: a python library to work with `posteriordb`
+# `posteriordb-python`: a Python library to work with `posteriordb`
 
-This repository contains the R package to efficiently work with the [posteriordb](https://github.com/stan-dev/posteriordb) repository. The R package includes convenience functions to access data, model code and information for individual posteriors, models, data and draws.
+This repository contains the Python package to efficiently work with the [posteriordb](https://github.com/stan-dev/posteriordb) repository. The R package includes convenience functions to access data, model code and information for individual posteriors, models, data and draws.
 
 > [!IMPORTANT]
 > This repository `posteriordb-python` only contains Python convience functions. The repository [`posteriordb`](https://github.com/stan-dev/posteriordb) contains the actual posteriors and associated models, data, and reference draws.
 
 ## Python versions
 
-Currently only python 3.6+ is supported. Python 3.5+ support can be added if needed. We don't plan to support python 2.
+Currently only Python 3.6+ is supported. Python 3.5+ support can be added if needed. Support is not planned for Python 2.
 
 ## Installation
 
@@ -28,9 +28,9 @@ python setup.py bdist_wheel
 pip install .
 ```
 
-## Using the posterior database from python
+## Using the posterior database from Python
 
-The included database contains convenience functions to access data, model code, and information for individual posteriors. We can create this database with either local or online access to `posteriordb`.
+The included database contains convenience functions to access data, model code, and information for individual posteriors. This database can be created with local or online access to `posteriordb`.
 
 For local access, ensure `posteriordb` is already dowloaded or clone it with:
 
@@ -57,7 +57,7 @@ Each model and data is only downloaded and cached when needed.
 >>> from posteriordb import PosteriorDatabaseGithub
 >>> import os
 >>> # It is recommended that GITHUB_PAT is added to the user environmental variables
->>> # outside python and not in a python script as shown in this example code
+>>> # outside Python and not in a Python script as shown in this example code
 >>> os.environ["GITHUB_PAT"] = "token-string-here"
 >>> my_pdb = PosteriorDatabaseGithub()
 ```
