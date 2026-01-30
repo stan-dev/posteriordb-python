@@ -84,8 +84,8 @@ class PosteriorDatabase:
         reference_root = os.path.join(self.path, "reference_posteriors/draws/draws")
         reference_name = self.get_posterior_info(name)["reference_posterior_name"]
         assert reference_name is not None
-        file_path = os.path.join(reference_root, reference_name + ".json")
-        return file_path
+        file_path = os.path.join(reference_root, reference_name + ".json.zip")
+        return Path(file_path)
 
     def get_reference_draws_info(self, name: str):
         reference_root = os.path.join(self.path, "reference_posteriors/draws/info")
