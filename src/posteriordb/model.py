@@ -1,4 +1,3 @@
-import os
 from typing import Union
 
 from .posterior_database import PosteriorDatabase

@@ -1,7 +1,6 @@
 import hashlib
 import json
 import os
-import tempfile
 from pathlib import Path
 import requests
 
@@ -129,6 +128,24 @@ def load_info(path, assertion_function, metadata, overwrite=False):
     info = load_json_file(path, metadata, overwrite=overwrite)
     assertion_function(info)
     return info
+
+
+def load_zip_file(path, metadata, overwrite=False):
+    if not path.exists():
+        if metadata is not None:
+            download_file(metadata["download_url"], path)
+        else:
+            raise TypeError("File was not found in GitHub")
+    elif overwrite:
+        if metadata is not None:
+            download_file(metadata["download_url"], path, sha=metadata["sha"])
+    return path
+
+
+def load_draws(path, assertion_function, metadata, overwrite=False):
+    path = load_zip_file(path, metadata, overwrite=overwrite)
+    assertion_function(path)
+    return path
 
 
 def filenames_in_dir_no_extension(directory, gh_directory, extension):
@@ -266,8 +283,13 @@ class PosteriorDatabaseGithub:
         reference_root = self.path / "reference_posteriors" / "draws" / "draws"
         reference_name = self.get_posterior_info(name).get("reference_posterior_name")
         assert reference_name is not None
-        path = reference_root / (reference_name + ".json")
-        return path
+        path = reference_root / (reference_name + ".json.zip")
+        return load_draws(
+            path,
+            temporary_no_assertions,
+            self._links.get(path, None),
+            overwrite=self.overwrite,
+        )
 
     def get_reference_draws_info(self, name: str):
         reference_root = self.path / "reference_posteriors" / "draws" / "info"

@@ -38,6 +38,11 @@ class Posterior:
 
     def reference_draws(self):
         reference_name = self.reference_draws_info()["name"]
-        with ZipFile(self.reference_draws_file_path() + ".zip", "r") as z:
-            with z.open(reference_name + ".json", "r") as f:
-                return json.load(f)
+        file_path = self.reference_draws_file_path()
+        if file_path.exists():
+            with ZipFile(file_path, "r") as z:
+                with z.open(reference_name + ".json", "r") as f:
+                    reference_draws =  json.load(f)
+        else:
+            raise ValueError(f"Missing reference_draws: {file_path}")
+        return reference_draws

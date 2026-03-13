@@ -16,25 +16,25 @@ jobs:
     strategy:
       matrix:
           os: [ubuntu-latest, macos-latest, windows-latest]
-          python-version: [3.6, 3.7, 3.8, 3.9]
+          python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
       fail-fast: false
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout python module repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Checkout posteriordb repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: stan-dev/posteriordb
           path: posteriordb
           fetch-depth: 0
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 

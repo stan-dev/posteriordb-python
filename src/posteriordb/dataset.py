@@ -1,5 +1,4 @@
 import json
-import os
 import tempfile
 from typing import Union
 from zipfile import ZipFile
